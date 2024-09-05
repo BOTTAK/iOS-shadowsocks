@@ -13,8 +13,8 @@ final class PacketTunnelProvider: NEPacketTunnelProvider {
   private var hostNetworkAddress: String?
   private var tun2socksTunnel: Tun2socksTunnelProtocol?
   private var tunnel: Tunnel?
-  private var tunnelStore = TunnelStore(appGroup: "group.ru.apriakhin.ShadowsocksClient")
-  private var packetQueue = DispatchQueue(label: "ru.apriakhin.ShadowsocksClient.packetqueue")
+  private var tunnelStore = TunnelStore(appGroup: "group.ru.vasilii.ShadowsocksClient")
+  private var packetQueue = DispatchQueue(label: "ru.vasilii.ShadowsocksClient.packetqueue")
   private var startCompletion: ((ErrorCode) -> Void)?
   private var stopCompletion: ((ErrorCode) -> Void)?
   private var defaultPathObserver: NSKeyValueObservation?

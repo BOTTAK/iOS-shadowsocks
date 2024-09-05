@@ -10,7 +10,7 @@
 	<true/>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>group.ru.apriakhin.ShadowsocksClient</string>
+		<string>group.ru.vasilii.ShadowsocksClient</string>
 	</array>
 	<key>com.apple.security.network.client</key>
 	<true/>
