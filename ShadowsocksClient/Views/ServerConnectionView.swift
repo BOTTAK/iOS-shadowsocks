@@ -4,6 +4,7 @@ import SwiftData
 struct ServerConnectionView: View {
     @Environment(Connection.self) private var connection
     @State private var isShowingAlert = false
+    @State private var isTestingMode = false
     @State private var hardcodedServer: Server? = Server(
         title: "Hardcoded Server",
         country: .russia,
@@ -14,7 +15,8 @@ struct ServerConnectionView: View {
             password: "BsH1jedrzqXmToHCkdG7UH"
         )
     )
-
+    @State private var showPayWall = false
+    
     private var isConnectButtonDisabled: Bool {
         return connection.status == .connected || connection.status == .connecting
     }
@@ -33,13 +35,21 @@ struct ServerConnectionView: View {
             }
 
             Spacer()
+            
             ToggleButton(isAnimating: !isDisconnectButtonDisabled) {
-                if isDisconnectButtonDisabled {
-                    connection.toggle(defaultServer: hardcodedServer!)
-                    print("Connecting...")
-                } else {
-                    connection.toggle(defaultServer: hardcodedServer!)
-                    print("Disconnecting...")
+                Task {
+                    if !isTestingMode {
+                        let subscriptionStatus = await SubscriptionManager.shared.activeSubscription
+                        print("Subscription Status: \(subscriptionStatus ? "Active" : "Inactive")") // Выводим статус подписки
+
+                        if !subscriptionStatus {
+                            showPayWall = true
+                        } else {
+                            toggleConnection()
+                        }
+                    } else {
+                        toggleConnection()
+                    }
                 }
             }
             .disabled(isConnectButtonDisabled && isDisconnectButtonDisabled)
@@ -58,6 +68,23 @@ struct ServerConnectionView: View {
             if connection.errorMessage != nil {
                 isShowingAlert = true
             }
+        }
+        .fullScreenCover(isPresented: $showPayWall) {
+            PayWallScreenWrapper {
+                    showPayWall = false
+                    
+                }
+            .edgesIgnoringSafeArea(.all)
+        }
+    }
+    
+    private func toggleConnection() {
+        if isDisconnectButtonDisabled {
+            connection.toggle(defaultServer: hardcodedServer!)
+            print("Connecting...")
+        } else {
+            connection.toggle(defaultServer: hardcodedServer!)
+            print("Disconnecting...")
         }
     }
 }

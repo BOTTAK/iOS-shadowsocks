@@ -69,6 +69,8 @@
 		11B722772C91CA7200B49754 /* UIViewController+NavigationControlle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B722382C91CA7200B49754 /* UIViewController+NavigationControlle.swift */; };
 		11B722782C91CA7200B49754 /* DefaultPresentationStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B7223A2C91CA7200B49754 /* DefaultPresentationStyle.swift */; };
 		11B722792C91CA7200B49754 /* UIViewControllerPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B7223B2C91CA7200B49754 /* UIViewControllerPresentation.swift */; };
+		11B7227D2C91D58300B49754 /* SubscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B7227C2C91D58300B49754 /* SubscriptionManager.swift */; };
+		11B7227F2C91D79100B49754 /* BOTTAK Premium.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 11B7227E2C91D79100B49754 /* BOTTAK Premium.storekit */; };
 		39207EE32C334300000EB919 /* ShadowsocksManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39207EE22C334300000EB919 /* ShadowsocksManager.swift */; };
 		39207EFA2C33435F000EB919 /* URLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39207EF82C33435F000EB919 /* URLParser.swift */; };
 		39207F042C3343BC000EB919 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39207EFE2C3343BC000EB919 /* Config.swift */; };
@@ -222,6 +224,8 @@
 		11B722382C91CA7200B49754 /* UIViewController+NavigationControlle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+NavigationControlle.swift"; sourceTree = "<group>"; };
 		11B7223A2C91CA7200B49754 /* DefaultPresentationStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultPresentationStyle.swift; sourceTree = "<group>"; };
 		11B7223B2C91CA7200B49754 /* UIViewControllerPresentation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerPresentation.swift; sourceTree = "<group>"; };
+		11B7227C2C91D58300B49754 /* SubscriptionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionManager.swift; sourceTree = "<group>"; };
+		11B7227E2C91D79100B49754 /* BOTTAK Premium.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = "BOTTAK Premium.storekit"; sourceTree = "<group>"; };
 		39207EE22C334300000EB919 /* ShadowsocksManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowsocksManager.swift; sourceTree = "<group>"; };
 		39207EF62C334346000EB919 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		39207EF82C33435F000EB919 /* URLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLParser.swift; sourceTree = "<group>"; };
@@ -757,6 +761,7 @@
 				39A91DC02C1B5BD8009B769F /* Components */,
 				11B7223F2C91CA7200B49754 /* Common */,
 				392E3CA42C260AAD0060CE18 /* Views */,
+				11B7227C2C91D58300B49754 /* SubscriptionManager.swift */,
 				39A91D942C1B59E8009B769F /* ShadowsocksClientApp.swift */,
 				392E3CD22C26F1DF0060CE18 /* DependencyFactory.swift */,
 				39A91D9A2C1B59EB009B769F /* Assets.xcassets */,
@@ -764,6 +769,7 @@
 				392E3CD82C28B9EB0060CE18 /* PrivacyInfo.xcprivacy */,
 				392E3CCA2C261F710060CE18 /* ShadowsocksClient.entitlements */,
 				392E3CC92C261F080060CE18 /* Info.plist */,
+				11B7227E2C91D79100B49754 /* BOTTAK Premium.storekit */,
 			);
 			path = ShadowsocksClient;
 			sourceTree = "<group>";
@@ -904,6 +910,7 @@
 				39A91D9B2C1B59EB009B769F /* Assets.xcassets in Resources */,
 				392E3CD92C28B9EF0060CE18 /* PrivacyInfo.xcprivacy in Resources */,
 				392E3CD72C27953F0060CE18 /* Localizable.xcstrings in Resources */,
+				11B7227F2C91D79100B49754 /* BOTTAK Premium.storekit in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1016,6 +1023,7 @@
 				39207EFA2C33435F000EB919 /* URLParser.swift in Sources */,
 				11B722652C91CA7200B49754 /* UILabel+ApplyStyle.swift in Sources */,
 				3952F2F82C1F4F2B008A611D /* String+.swift in Sources */,
+				11B7227D2C91D58300B49754 /* SubscriptionManager.swift in Sources */,
 				11B722592C91CA7200B49754 /* UICollectionView+CreateCell.swift in Sources */,
 				11B722672C91CA7200B49754 /* UINavigationController+GetReference.swift in Sources */,
 				11B722412C91CA7200B49754 /* Date+DayStep.swift in Sources */,
@@ -1238,7 +1246,7 @@
 				CODE_SIGN_ENTITLEMENTS = ShadowsocksClient/ShadowsocksClient.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = ZZH8QX82PA;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
@@ -1283,7 +1291,7 @@
 				CODE_SIGN_ENTITLEMENTS = ShadowsocksClient/ShadowsocksClient.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = ZZH8QX82PA;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
