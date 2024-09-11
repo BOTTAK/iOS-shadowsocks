@@ -3,6 +3,7 @@ import SwiftData
 
 @main
 struct ShadowsocksClientApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     private let dependencyFactory: DependencyFactory
     @State private var connection: Connection
     @State private var showServerConnectionView = false
