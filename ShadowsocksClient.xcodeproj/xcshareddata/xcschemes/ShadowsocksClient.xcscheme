@@ -63,6 +63,9 @@
             ReferencedContainer = "container:ShadowsocksClient.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <StoreKitConfigurationFileReference
+         identifier = "../../ShadowsocksClient/BOTTAK Premium.storekit">
+      </StoreKitConfigurationFileReference>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
