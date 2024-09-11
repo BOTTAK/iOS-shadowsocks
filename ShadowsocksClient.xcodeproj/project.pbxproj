@@ -1246,7 +1246,7 @@
 				CODE_SIGN_ENTITLEMENTS = ShadowsocksClient/ShadowsocksClient.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = ZZH8QX82PA;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
@@ -1291,7 +1291,7 @@
 				CODE_SIGN_ENTITLEMENTS = ShadowsocksClient/ShadowsocksClient.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = ZZH8QX82PA;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;

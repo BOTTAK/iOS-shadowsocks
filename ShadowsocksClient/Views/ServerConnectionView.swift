@@ -40,8 +40,7 @@ struct ServerConnectionView: View {
                 Task {
                     if !isTestingMode {
                         let subscriptionStatus = await SubscriptionManager.shared.activeSubscription
-                        print("Subscription Status: \(subscriptionStatus ? "Active" : "Inactive")") // Выводим статус подписки
-
+                        print("Subscription Status: \(subscriptionStatus ? "Active" : "Inactive")")
                         if !subscriptionStatus {
                             showPayWall = true
                         } else {

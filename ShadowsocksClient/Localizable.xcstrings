@@ -104,6 +104,7 @@
       }
     },
     "Add Server" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ru" : {
           "stringUnit" : {
@@ -759,6 +760,9 @@
         }
       }
     },
+    "Checking subscription..." : {
+
+    },
     "Chile" : {
       "localizations" : {
         "ru" : {
@@ -888,6 +892,7 @@
       }
     },
     "Configure system proxy is failure" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ru" : {
           "stringUnit" : {
@@ -982,6 +987,9 @@
           }
         }
       }
+    },
+    "Continue" : {
+
     },
     "Cook Islands" : {
       "localizations" : {
@@ -1286,6 +1294,9 @@
           }
         }
       }
+    },
+    "Enable Free Trial" : {
+
     },
     "Equatorial Guinea" : {
       "localizations" : {
@@ -1864,6 +1875,7 @@
       }
     },
     "Illegal server configuration" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ru" : {
           "stringUnit" : {
@@ -1928,6 +1940,7 @@
       }
     },
     "Invalid server credentials" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ru" : {
           "stringUnit" : {
@@ -2936,6 +2949,7 @@
       }
     },
     "No admin permissions" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ru" : {
           "stringUnit" : {
@@ -3255,6 +3269,9 @@
         }
       }
     },
+    "Privacy" : {
+
+    },
     "Puerto Rico" : {
       "localizations" : {
         "ru" : {
@@ -3302,6 +3319,9 @@
           }
         }
       }
+    },
+    "Restore" : {
+
     },
     "Réunion" : {
       "localizations" : {
@@ -3431,6 +3451,9 @@
         }
       }
     },
+    "Scan PDF, E-Sign document, Print\ndocuments" : {
+
+    },
     "Senegal" : {
       "localizations" : {
         "ru" : {
@@ -3464,6 +3487,7 @@
       }
     },
     "Server unreachable" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ru" : {
           "stringUnit" : {
@@ -3512,6 +3536,7 @@
       }
     },
     "Shadowsocks start failure" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ru" : {
           "stringUnit" : {
@@ -3832,6 +3857,7 @@
       }
     },
     "System misconfigured" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ru" : {
           "stringUnit" : {
@@ -3894,6 +3920,9 @@
           }
         }
       }
+    },
+    "Terms" : {
+
     },
     "Thailand" : {
       "localizations" : {
@@ -4088,6 +4117,7 @@
       }
     },
     "UDP relay not enabled" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ru" : {
           "stringUnit" : {
@@ -4199,7 +4229,11 @@
         }
       }
     },
+    "Unlimited access" : {
+
+    },
     "Unsupported routing table" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ru" : {
           "stringUnit" : {
@@ -4328,6 +4362,7 @@
       }
     },
     "VPN permission not granted" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ru" : {
           "stringUnit" : {
@@ -4344,6 +4379,7 @@
       }
     },
     "VPN start failure" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ru" : {
           "stringUnit" : {
