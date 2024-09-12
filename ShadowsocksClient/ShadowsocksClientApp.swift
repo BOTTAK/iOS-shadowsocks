@@ -7,7 +7,6 @@ struct ShadowsocksClientApp: App {
     private let dependencyFactory: DependencyFactory
     @State private var connection: Connection
     @State private var showServerConnectionView = false
-    @State private var activeSubscription = false
     @State private var subscriptionChecked = false
     @State private var showActivityIndicator = true
     @AppStorage("hasSeenOnboarding") private var hasSeenOnboarding = false
@@ -34,7 +33,7 @@ struct ShadowsocksClientApp: App {
                             hasSeenOnboarding = true
                             showServerConnectionView = true
                         }
-                    } else if activeSubscription || showServerConnectionView {
+                    } else if SubscriptionManager.shared.activeSubscription || showServerConnectionView {
                         ServerConnectionView()
                             .environment(dependencyFactory)
                             .environment(connection)
@@ -55,10 +54,10 @@ struct ShadowsocksClientApp: App {
     
     private func checkSubscriptionStatus() {
         Task {
-            let isSubscribed = await SubscriptionManager.shared.activeSubscription
+            await SubscriptionManager.shared.checkActiveSubscriptions()
+            let isSubscribed = SubscriptionManager.shared.activeSubscription
             print("Subscription Status at App Start: \(isSubscribed ? "Active" : "Inactive")")
             DispatchQueue.main.async {
-                self.activeSubscription = isSubscribed
                 self.subscriptionChecked = true
                 self.showActivityIndicator = false
             }
