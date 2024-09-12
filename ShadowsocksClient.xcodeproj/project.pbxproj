@@ -12,6 +12,8 @@
 		118E8FE12C9217F700730A50 /* AppMetricaCore in Frameworks */ = {isa = PBXBuildFile; productRef = 118E8FE02C9217F700730A50 /* AppMetricaCore */; };
 		118E8FE32C9217F700730A50 /* AppMetricaCrashes in Frameworks */ = {isa = PBXBuildFile; productRef = 118E8FE22C9217F700730A50 /* AppMetricaCrashes */; };
 		118E8FE52C9217F700730A50 /* AppMetricaWebKit in Frameworks */ = {isa = PBXBuildFile; productRef = 118E8FE42C9217F700730A50 /* AppMetricaWebKit */; };
+		118E8FE72C92BA4D00730A50 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118E8FE62C92BA4D00730A50 /* SplashView.swift */; };
+		118E8FE92C92BF7700730A50 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118E8FE82C92BF7700730A50 /* OnboardingView.swift */; };
 		11B721DC2C91C51000B49754 /* PayWallScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B721DB2C91C51000B49754 /* PayWallScreenView.swift */; };
 		11B721E02C91C9A100B49754 /* PayWallScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B721DD2C91C9A100B49754 /* PayWallScreen.swift */; };
 		11B721E12C91C9A100B49754 /* PayWallScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11B721DE2C91C9A100B49754 /* PayWallScreen.xib */; };
@@ -119,7 +121,7 @@
 		39A91DD32C1C6E0B009B769F /* ServerDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A91DD22C1C6E0B009B769F /* ServerDetailsView.swift */; };
 		39A91DD92C1C8E3B009B769F /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A91DD82C1C8E3B009B769F /* Country.swift */; };
 		39E20DCB2C31C30E00B7882D /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 392E3CAC2C2611E60060CE18 /* NetworkExtension.framework */; };
-		39E20DCE2C31CB8A00B7882D /* VPNExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 392E3CAA2C2611E60060CE18 /* VPNExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		39E20DCE2C31CB8A00B7882D /* VPNExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 392E3CAA2C2611E60060CE18 /* VPNExtension.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -168,6 +170,8 @@
 
 /* Begin PBXFileReference section */
 		118E8FDB2C9217B200730A50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		118E8FE62C92BA4D00730A50 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		118E8FE82C92BF7700730A50 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		11B721DB2C91C51000B49754 /* PayWallScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayWallScreenView.swift; sourceTree = "<group>"; };
 		11B721DD2C91C9A100B49754 /* PayWallScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayWallScreen.swift; sourceTree = "<group>"; };
 		11B721DE2C91C9A100B49754 /* PayWallScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PayWallScreen.xib; sourceTree = "<group>"; };
@@ -683,6 +687,7 @@
 		392E3CA12C2608500060CE18 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				11B7227C2C91D58300B49754 /* SubscriptionManager.swift */,
 				392E3CD02C26EE6F0060CE18 /* DataManager.swift */,
 				39207EE22C334300000EB919 /* ShadowsocksManager.swift */,
 			);
@@ -698,6 +703,8 @@
 				3952F2FA2C1F76A8008A611D /* ServerListView.swift */,
 				11B721DB2C91C51000B49754 /* PayWallScreenView.swift */,
 				11B721E22C91C9B200B49754 /* PayWallScreenWrapper.swift */,
+				118E8FE62C92BA4D00730A50 /* SplashView.swift */,
+				118E8FE82C92BF7700730A50 /* OnboardingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -771,7 +778,6 @@
 				39A91DC02C1B5BD8009B769F /* Components */,
 				11B7223F2C91CA7200B49754 /* Common */,
 				392E3CA42C260AAD0060CE18 /* Views */,
-				11B7227C2C91D58300B49754 /* SubscriptionManager.swift */,
 				39A91D942C1B59E8009B769F /* ShadowsocksClientApp.swift */,
 				118E8FDB2C9217B200730A50 /* AppDelegate.swift */,
 				392E3CD22C26F1DF0060CE18 /* DependencyFactory.swift */,
@@ -970,6 +976,7 @@
 				11B7225E2C91CA7200B49754 /* Demension.swift in Sources */,
 				3994DD6E2C30421C00411827 /* ErrorCode+.swift in Sources */,
 				11B722702C91CA7200B49754 /* UITextField+Padding.swift in Sources */,
+				118E8FE72C92BA4D00730A50 /* SplashView.swift in Sources */,
 				3994DD7F2C31A7D200411827 /* AppPath.swift in Sources */,
 				39A91DCF2C1B8E09009B769F /* Server.swift in Sources */,
 				11B722622C91CA7200B49754 /* UIImage+Gradient.swift in Sources */,
@@ -1003,6 +1010,7 @@
 				11B722532C91CA7200B49754 /* DateFormatter.swift in Sources */,
 				11B7224F2C91CA7200B49754 /* String+Localized.swift in Sources */,
 				392E3CD32C26F1DF0060CE18 /* DependencyFactory.swift in Sources */,
+				118E8FE92C92BF7700730A50 /* OnboardingView.swift in Sources */,
 				11B7226D2C91CA7200B49754 /* UITableView+CreateCell.swift in Sources */,
 				11B722452C91CA7200B49754 /* Date+StepHour.swift in Sources */,
 				11B7226F2C91CA7200B49754 /* UITableView+SelectAll.swift in Sources */,
@@ -1052,6 +1060,7 @@
 /* Begin PBXTargetDependency section */
 		39E20DD02C31CB8A00B7882D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
+			platformFilter = ios;
 			target = 392E3CA92C2611E60060CE18 /* VPNExtension */;
 			targetProxy = 39E20DCF2C31CB8A00B7882D /* PBXContainerItemProxy */;
 		};
@@ -1263,7 +1272,7 @@
 				CODE_SIGN_ENTITLEMENTS = ShadowsocksClient/ShadowsocksClient.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = ZZH8QX82PA;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
@@ -1308,7 +1317,7 @@
 				CODE_SIGN_ENTITLEMENTS = ShadowsocksClient/ShadowsocksClient.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = ZZH8QX82PA;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;

@@ -6,11 +6,11 @@ struct PayWallScreenWrapper: UIViewControllerRepresentable {
 
     func makeUIViewController(context: Context) -> PayWallScreen {
         let viewController = PayWallScreen()
-        viewController.onNavigateToNextScreen = onNavigateToNextScreen // Передаем замыкание в контроллер
+        viewController.onNavigateToNextScreen = onNavigateToNextScreen
         return viewController
     }
 
     func updateUIViewController(_ uiViewController: PayWallScreen, context: Context) {
-        // Обновление состояния, если нужно
+
     }
 }

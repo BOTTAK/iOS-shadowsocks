@@ -10,6 +10,7 @@ struct ShadowsocksClientApp: App {
     @State private var activeSubscription = false
     @State private var subscriptionChecked = false
     @State private var showActivityIndicator = true
+    @AppStorage("hasSeenOnboarding") private var hasSeenOnboarding = false
     
     init() {
         dependencyFactory = DependencyFactory.shared
@@ -21,15 +22,19 @@ struct ShadowsocksClientApp: App {
         WindowGroup {
             Group {
                 if showActivityIndicator {
-                    ProgressView("Checking subscription...")
-                        .progressViewStyle(CircularProgressViewStyle())
+                    SplashView()
                         .onAppear {
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                                 checkSubscriptionStatus()
                             }
                         }
                 } else if subscriptionChecked {
-                    if activeSubscription || showServerConnectionView {
+                    if !hasSeenOnboarding {
+                        OnboardingView {
+                            hasSeenOnboarding = true
+                            showServerConnectionView = true
+                        }
+                    } else if activeSubscription || showServerConnectionView {
                         ServerConnectionView()
                             .environment(dependencyFactory)
                             .environment(connection)
