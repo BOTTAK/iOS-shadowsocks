@@ -21,7 +21,7 @@ struct SplashView: View {
                 .padding(.horizontal, 46)
             Spacer()
                 .frame(height: 11)
-            Text("B-TELL")
+            Text("BOTTAK-VPN")
                 .font(.system(size: 40, weight: .black))
                 .foregroundColor(.white)
                 .multilineTextAlignment(.center)
