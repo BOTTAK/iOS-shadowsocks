@@ -14,6 +14,7 @@
 		118E8FE52C9217F700730A50 /* AppMetricaWebKit in Frameworks */ = {isa = PBXBuildFile; productRef = 118E8FE42C9217F700730A50 /* AppMetricaWebKit */; };
 		118E8FE72C92BA4D00730A50 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118E8FE62C92BA4D00730A50 /* SplashView.swift */; };
 		118E8FE92C92BF7700730A50 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118E8FE82C92BF7700730A50 /* OnboardingView.swift */; };
+		118E8FEB2C931AF500730A50 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 118E8FEA2C931AF500730A50 /* GoogleService-Info.plist */; };
 		11B721DC2C91C51000B49754 /* PayWallScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B721DB2C91C51000B49754 /* PayWallScreenView.swift */; };
 		11B721E02C91C9A100B49754 /* PayWallScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B721DD2C91C9A100B49754 /* PayWallScreen.swift */; };
 		11B721E12C91C9A100B49754 /* PayWallScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11B721DE2C91C9A100B49754 /* PayWallScreen.xib */; };
@@ -172,6 +173,7 @@
 		118E8FDB2C9217B200730A50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		118E8FE62C92BA4D00730A50 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		118E8FE82C92BF7700730A50 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		118E8FEA2C931AF500730A50 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		11B721DB2C91C51000B49754 /* PayWallScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayWallScreenView.swift; sourceTree = "<group>"; };
 		11B721DD2C91C9A100B49754 /* PayWallScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayWallScreen.swift; sourceTree = "<group>"; };
 		11B721DE2C91C9A100B49754 /* PayWallScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PayWallScreen.xib; sourceTree = "<group>"; };
@@ -783,6 +785,7 @@
 				392E3CD22C26F1DF0060CE18 /* DependencyFactory.swift */,
 				39A91D9A2C1B59EB009B769F /* Assets.xcassets */,
 				392E3CD62C27953F0060CE18 /* Localizable.xcstrings */,
+				118E8FEA2C931AF500730A50 /* GoogleService-Info.plist */,
 				392E3CD82C28B9EB0060CE18 /* PrivacyInfo.xcprivacy */,
 				392E3CCA2C261F710060CE18 /* ShadowsocksClient.entitlements */,
 				392E3CC92C261F080060CE18 /* Info.plist */,
@@ -933,6 +936,7 @@
 				392E3CD92C28B9EF0060CE18 /* PrivacyInfo.xcprivacy in Resources */,
 				392E3CD72C27953F0060CE18 /* Localizable.xcstrings in Resources */,
 				11B7227F2C91D79100B49754 /* BOTTAK Premium.storekit in Resources */,
+				118E8FEB2C931AF500730A50 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
