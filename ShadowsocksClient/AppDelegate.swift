@@ -1,6 +1,6 @@
 import UIKit
 import AppMetricaCore
-
+import FirebaseCore
 
 import Combine
 
@@ -10,6 +10,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let configuration = AppMetricaConfiguration(apiKey: "9b4b9cb9-cbfd-4469-a89a-35814af5f906")
         AppMetrica.activate(with: configuration!)
+        FirebaseApp.configure()
         return true
     }
     
