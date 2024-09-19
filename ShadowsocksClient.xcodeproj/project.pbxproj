@@ -84,6 +84,7 @@
 		11B722792C91CA7200B49754 /* UIViewControllerPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B7223B2C91CA7200B49754 /* UIViewControllerPresentation.swift */; };
 		11B7227D2C91D58300B49754 /* SubscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B7227C2C91D58300B49754 /* SubscriptionManager.swift */; };
 		11B7227F2C91D79100B49754 /* BOTTAK Premium.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 11B7227E2C91D79100B49754 /* BOTTAK Premium.storekit */; };
+		11BC3BF02C9C7BB6004437E5 /* PayWallOneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BC3BEF2C9C7BB6004437E5 /* PayWallOneView.swift */; };
 		11D4F8662C9320D80007A0AC /* FirebaseRemoteConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D4F8652C9320D80007A0AC /* FirebaseRemoteConfigManager.swift */; };
 		11D4F8682C9321C50007A0AC /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 11D4F8672C9321C50007A0AC /* FirebaseRemoteConfig */; };
 		11D4F86A2C9321C50007A0AC /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 11D4F8692C9321C50007A0AC /* FirebaseRemoteConfigSwift */; };
@@ -246,6 +247,7 @@
 		11B7223B2C91CA7200B49754 /* UIViewControllerPresentation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerPresentation.swift; sourceTree = "<group>"; };
 		11B7227C2C91D58300B49754 /* SubscriptionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionManager.swift; sourceTree = "<group>"; };
 		11B7227E2C91D79100B49754 /* BOTTAK Premium.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = "BOTTAK Premium.storekit"; sourceTree = "<group>"; };
+		11BC3BEF2C9C7BB6004437E5 /* PayWallOneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayWallOneView.swift; sourceTree = "<group>"; };
 		11D4F8652C9320D80007A0AC /* FirebaseRemoteConfigManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseRemoteConfigManager.swift; sourceTree = "<group>"; };
 		39207EE22C334300000EB919 /* ShadowsocksManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowsocksManager.swift; sourceTree = "<group>"; };
 		39207EF62C334346000EB919 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
@@ -724,6 +726,7 @@
 				11B721E22C91C9B200B49754 /* PayWallScreenWrapper.swift */,
 				118E8FE62C92BA4D00730A50 /* SplashView.swift */,
 				118E8FE82C92BF7700730A50 /* OnboardingView.swift */,
+				11BC3BEF2C9C7BB6004437E5 /* PayWallOneView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1079,6 +1082,7 @@
 				11B722652C91CA7200B49754 /* UILabel+ApplyStyle.swift in Sources */,
 				3952F2F82C1F4F2B008A611D /* String+.swift in Sources */,
 				11B7227D2C91D58300B49754 /* SubscriptionManager.swift in Sources */,
+				11BC3BF02C9C7BB6004437E5 /* PayWallOneView.swift in Sources */,
 				11B722592C91CA7200B49754 /* UICollectionView+CreateCell.swift in Sources */,
 				11B722672C91CA7200B49754 /* UINavigationController+GetReference.swift in Sources */,
 				11B722412C91CA7200B49754 /* Date+DayStep.swift in Sources */,
@@ -1302,7 +1306,7 @@
 				CODE_SIGN_ENTITLEMENTS = ShadowsocksClient/ShadowsocksClient.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = ZZH8QX82PA;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
@@ -1347,7 +1351,7 @@
 				CODE_SIGN_ENTITLEMENTS = ShadowsocksClient/ShadowsocksClient.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = ZZH8QX82PA;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
