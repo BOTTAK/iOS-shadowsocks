@@ -126,7 +126,7 @@ struct PayWallOneView: View {
                         // Действие кнопки
                     }) {
                         Text(title)
-                            .font(.system(size: 12))
+                            .font(.system(size: 14))
                             .foregroundColor(Color.accent)
                     }
                 }
