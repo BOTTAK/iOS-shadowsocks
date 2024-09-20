@@ -10,7 +10,7 @@ struct ShadowsocksClientApp: App {
     @State private var subscriptionChecked = false
     @State private var showActivityIndicator = true
     @AppStorage("hasSeenOnboarding") private var hasSeenOnboarding = false
-    
+    @State private var showPayWallOneView = !UserDefaults.standard.bool(forKey: "hasSeenPayWallOneView")
     init() {
         dependencyFactory = DependencyFactory.shared
         _connection = State(initialValue: Connection(shadowsocksManager: dependencyFactory.shadowsocksManager))
@@ -31,21 +31,22 @@ struct ShadowsocksClientApp: App {
                     if !hasSeenOnboarding {
                         OnboardingView {
                             hasSeenOnboarding = true
-                            showServerConnectionView = true
                         }
+                    } else if isFirstLaunch() { // Показываем PayWallOneView после OnboardingView на первом запуске
+                        PayWallOneView()
+                            .onAppear {
+                                UserDefaults.standard.set(true, forKey: "hasSeenPayWallOneView") // Устанавливаем флаг, что экран был показан
+                            }
                     } else if SubscriptionManager.shared.activeSubscription || showServerConnectionView {
                         ServerConnectionView()
                             .environment(dependencyFactory)
                             .environment(connection)
                             .preferredColorScheme(.light)
                     } else {
-//                        PayWallScreenWrapper {
-//                            showServerConnectionView = true
-//                        }
                         PayWallScreenView()
-                        .edgesIgnoringSafeArea(.all)
-                        .environment(dependencyFactory)
-                        .environment(connection)
+                            .edgesIgnoringSafeArea(.all)
+                            .environment(dependencyFactory)
+                            .environment(connection)
                     }
                 }
             }
@@ -63,5 +64,10 @@ struct ShadowsocksClientApp: App {
                 self.showActivityIndicator = false
             }
         }
+    }
+    
+    func isFirstLaunch() -> Bool {
+        let hasSeenPayWallOneView = UserDefaults.standard.bool(forKey: "hasSeenPayWallOneView")
+        return !hasSeenPayWallOneView // Вернет true, если PayWallOneView еще не был показан
     }
 }

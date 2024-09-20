@@ -1,4 +1,5 @@
 import SwiftUI
+import StoreKit
 
 enum SubscriptionType {
     case weekly
@@ -54,7 +55,11 @@ struct PayWallOneView: View {
     ]
     
     @State private var currentPage = 0
-    @State private var selectedOption: SubscriptionType = .weekly
+    @State private var selectedOption: SubscriptionType? = .weekly
+    @State private var yearlyProduct: Product? = nil
+    @State private var monthlyProduct: Product? = nil
+    @State private var showServerConnectionView = false
+    @State private var isSubscribed = false
 
     var body: some View {
         VStack(spacing: 0) {
@@ -149,6 +154,12 @@ struct PayWallOneView: View {
             
             Spacer()
         }
+        .onAppear {
+            loadProducts() // Загружаем продукты при появлении
+        }
+        .fullScreenCover(isPresented: $showServerConnectionView) {
+            ServerConnectionView() // Переход в полноэкранном режиме
+        }
         .ignoresSafeArea(edges: .top)
         .gesture(
             DragGesture()
@@ -164,6 +175,74 @@ struct PayWallOneView: View {
                     }
                 }
         )
+    }
+    
+    // Загружаем подписочные продукты
+    func loadProducts() {
+        Task {
+            await SubscriptionManager.shared.loadProducts()
+            let products = SubscriptionManager.shared.products
+            self.yearlyProduct = products.first { $0.id == "com.year.premium" }
+            self.monthlyProduct = products.first { $0.id == "com.month.premium" }
+        }
+    }
+    
+    // Логика подписки
+    func subscribe() {
+        if selectedOption == .annual {
+            subscribeSuccessOneYear()
+        } else if selectedOption == .monthly {
+            subscribeSuccessOneMonth()
+        }
+    }
+    
+    // Подписка на год
+    func subscribeSuccessOneYear() {
+        guard let yearlyProduct = yearlyProduct else {
+            print("Годовой продукт не найден")
+            return
+        }
+
+        Task {
+            await SubscriptionManager.shared.purchaseProduct(yearlyProduct)
+            if SubscriptionManager.shared.activeSubscription {
+                showServerConnectionView = true
+            } else {
+                print("Подписка не была активирована.")
+            }
+        }
+    }
+
+    // Подписка на месяц
+    func subscribeSuccessOneMonth() {
+        guard let monthlyProduct = monthlyProduct else {
+            print("Месячный продукт не найден")
+            return
+        }
+
+        Task {
+            await SubscriptionManager.shared.purchaseProduct(monthlyProduct)
+            if SubscriptionManager.shared.activeSubscription {
+                showServerConnectionView = true
+            } else {
+                print("Подписка не была активирована.")
+            }
+        }
+    }
+    
+    // Восстановление покупок
+    func restorePurchases() {
+        Task {
+            await SubscriptionManager.shared.restorePurchases()
+            isSubscribed = SubscriptionManager.shared.activeSubscription
+        }
+    }
+    
+    // Открываем URL
+    func openURL(_ urlString: String) {
+        if let url = URL(string: urlString) {
+            UIApplication.shared.open(url)
+        }
     }
 }
 
