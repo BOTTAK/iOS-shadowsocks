@@ -39,9 +39,10 @@ struct ShadowsocksClientApp: App {
                             .environment(connection)
                             .preferredColorScheme(.light)
                     } else {
-                        PayWallScreenWrapper {
-                            showServerConnectionView = true
-                        }
+//                        PayWallScreenWrapper {
+//                            showServerConnectionView = true
+//                        }
+                        PayWallScreenView()
                         .edgesIgnoringSafeArea(.all)
                         .environment(dependencyFactory)
                         .environment(connection)

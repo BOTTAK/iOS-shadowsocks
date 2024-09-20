@@ -1,146 +1,214 @@
 import SwiftUI
+import StoreKit
 
 struct PayWallScreenView: View {
-    @State private var isThreeDaysSelected: Bool = true
-    @State private var isTrialEnabled: Bool = false
-    @State private var selectedProduct: String = "week.5.t"
+    @State private var showServerConnectionView = false
+    @Environment(\.presentationMode) var presentationMode
+    @State private var selectedOption: SubscriptionType? = .weekly
+    @State private var yearlyProduct: Product? = nil
+    @State private var monthlyProduct: Product? = nil
+    @State private var isSubscribed = false
+    var onNavigateToNextScreen: (() -> Void)?
+    let subscriptionOptions: [SubscriptionOption] = [
+        SubscriptionOption(
+            type: .weekly,
+            title: "Weekly",
+            subtitle: "First 3 days free • Then $6.99 /Week",
+            showBadge: false,
+            buttonText: "Try free for 3 days"
+        ),
+        SubscriptionOption(
+            type: .annual,
+            title: "Annual",
+            subtitle: "First 14 days free • Then $59.99 /Year",
+            showBadge: true,
+            buttonText: "Try free for 14 days"
+        ),
+        SubscriptionOption(
+            type: .monthly,
+            title: "Monthly",
+            subtitle: "First 7 days free • Then $9.99 /Month",
+            showBadge: false,
+            buttonText: "Try free for 7 days"
+        )
+    ]
     
     var body: some View {
         VStack {
-            // Close button
             HStack {
+                
+                Button(action: {
+                    showServerConnectionView = true
+                }) {
+                    Image("Close_round_fill")
+                        .resizable()
+                        .frame(width: 40, height: 40)
+                        .foregroundColor(.gray)
+                }
+                .padding(.top, 60)
+                .padding(.leading, 20)
                 Spacer()
-                Image("close-paywall")
-                    .resizable()
-                    .frame(width: 19, height: 19)
-                    .padding(.top, 18)
-                    .padding(.trailing, 23)
-                    .onTapGesture {
-                        closePaywall()
-                    }
             }
-            
-            // Main title and subtitle
-            Text("Unlimited access")
-                .font(.system(size: 25, weight: .black))
-                .foregroundColor(Color(hex: "#0F1319"))
-                .multilineTextAlignment(.center)
-                .padding(.top, 40)
-            
-            Text("Scan PDF, E-Sign document, Print\ndocuments")
-                .font(.system(size: 16, weight: .medium))
-                .foregroundColor(Color(hex: "#999999"))
-                .multilineTextAlignment(.center)
-                .padding(.top, 10)
-            
-            // Replace Lottie with image (red background for now)
-            Image(systemName: "photo")
+            Spacer()
+                .frame(height: 100)
+            Image("belarus")
                 .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(maxWidth: .infinity, maxHeight: 250)
-                .background(Color.red)
-                .cornerRadius(15)
-                .padding(.top, 20)
-                .padding(.horizontal, 20)
+                .frame(width: 50, height: 50)
+                .foregroundColor(.gray)
+            Spacer()
+                .frame(height: 20)
+            Text("Get Premium to connect to Belarus")
+                .font(.system(size: 20, weight: .semibold))
+                .foregroundColor(.black)
+                .multilineTextAlignment(.center)
+            Spacer()
+                .frame(height: 10)
+            Text("Premium includes over 3,200 servers in 80+\ncountries and 20+ cities")
+                .font(.system(size: 15, weight: .regular))
+                .foregroundColor(.gray)
+                .multilineTextAlignment(.center)
+            Spacer()
+                .frame(height: 10)
             
-            // Three Days view
-            OptionView(
-                title: "3 day free trial",
-                subtitle: "$4.99 per week",
-                isSelected: isThreeDaysSelected
-            )
-            .padding(.top, 15)
-            
-            // Yearly view
-            OptionView(
-                title: "Yearly",
-                subtitle: "$29.99 per year",
-                isSelected: !isThreeDaysSelected
-            )
-            .padding(.top, 10)
-            
-            // Enable Free Trial
-            HStack {
-                Text("Enable Free Trial")
-                    .font(.system(size: 16, weight: .bold))
-                    .foregroundColor(.black)
-                Spacer()
-                Toggle("", isOn: $isTrialEnabled)
-                    .labelsHidden()
-                    .onChange(of: isTrialEnabled) { value in
-                        updateViewSelection(isThreeDaysSelected: value)
-                    }
+            VStack(spacing: 10) {
+                ForEach(subscriptionOptions) { option in
+                    FeatureView(
+                        title: option.title,
+                        subtitle: option.subtitle,
+                        showBadge: option.showBadge,
+                        isSelected: selectedOption == option.type,
+                        action: {
+                            selectedOption = option.type
+                        }
+                    )
+                    .padding(.vertical, 5)
+                }
             }
             .padding(.horizontal, 20)
-            .padding(.top, 20)
-            .background(Color(hex: "#F5F7FA"))
-            .cornerRadius(20)
-            .shadow(color: Color.gray.opacity(0.2), radius: 1, x: 2, y: 2)
-            .frame(height: 43)
+            .padding(.top, 30)
             
-            // Continue Button
+            Spacer()
+                .frame(height: 30)
             Button(action: {
-                sendButtonTapped()
+                // Логика подписки
+                subscribe()
             }) {
-                Text("Continue")
-                    .font(.system(size: 18, weight: .bold))
+                Text(subscriptionOptions.first(where: { $0.type == selectedOption })?.buttonText ?? "Subscribe")
+                    .font(.system(size: 18, weight: .semibold))
                     .foregroundColor(.white)
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(Color(hex: "#006AFF"))
-                    .cornerRadius(28)
-                    .shadow(color: Color(hex: "#006AFF").opacity(0.67), radius: 20, x: 2, y: 2)
+                    .frame(maxWidth: .infinity, maxHeight: 60)
+                    .background(Color.accent)
+                    .cornerRadius(20)
+                    .padding(.horizontal, 20)
             }
-            .padding(.top, 20)
-            .padding(.horizontal, 20)
-            .frame(height: 56)
             
-            // Privacy, Restore, Terms Labels
-            HStack {
-                Text("Privacy")
-                    .font(.system(size: 14, weight: .medium))
-                    .foregroundColor(Color(hex: "#999999"))
-                    .onTapGesture {
-                        openURL("https://yourprivacyurl.com")
-                    }
-                
-                Spacer()
-                
-                Text("Restore")
-                    .font(.system(size: 14, weight: .medium))
-                    .foregroundColor(Color(hex: "#999999"))
-                    .onTapGesture {
-                        // Restore logic here
-                    }
-                
-                Spacer()
-                
-                Text("Terms")
-                    .font(.system(size: 14, weight: .medium))
-                    .foregroundColor(Color(hex: "#999999"))
-                    .onTapGesture {
-                        openURL("https://yourtermsurl.com")
-                    }
+            Spacer()
+            HStack(spacing: 20) {
+                Button(action: {
+                    // Логика открытия Privacy Policy
+                    openURL("https://docs.google.com/document/d/19V7SlzGIwBu2pybvLPceYVdi8G5QsHy9ZTDHP_gZOpc/edit?usp=sharing")
+                }) {
+                    Text("Privacy")
+                        .font(.system(size: 14))
+                        .foregroundColor(Color.accent)
+                }
+
+                Button(action: {
+                    // Логика восстановления покупки
+                    restorePurchases()
+                }) {
+                    Text("Restore purchase")
+                        .font(.system(size: 14))
+                        .foregroundColor(Color.accent)
+                }
+
+                Button(action: {
+                    // Логика открытия Terms of Use
+                    openURL("https://docs.google.com/document/d/19V7SlzGIwBu2pybvLPceYVdi8G5QsHy9ZTDHP_gZOpc/edit?usp=sharing")
+                }) {
+                    Text("Terms of Use")
+                        .font(.system(size: 14))
+                        .foregroundColor(Color.accent)
+                }
             }
+            .padding(.bottom, 30)
             .padding(.horizontal, 20)
-            .padding(.top, 20)
+            .frame(maxWidth: .infinity)
+            .multilineTextAlignment(.center)
         }
-        .background(Color(hex: "#F5F7FA")) // Устанавливаем цвет фона
+        .onAppear {
+            loadProducts() // Загружаем продукты при появлении
+        }
+        .fullScreenCover(isPresented: $showServerConnectionView) {
+            ServerConnectionView() // Переход в полноэкранном режиме
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.white)
         .edgesIgnoringSafeArea(.all)
     }
     
-    func updateViewSelection(isThreeDaysSelected: Bool) {
-        self.isThreeDaysSelected = isThreeDaysSelected
+    // Загружаем подписочные продукты
+    func loadProducts() {
+        Task {
+            await SubscriptionManager.shared.loadProducts()
+            let products = SubscriptionManager.shared.products
+            self.yearlyProduct = products.first { $0.id == "com.year.premium" }
+            self.monthlyProduct = products.first { $0.id == "com.month.premium" }
+        }
     }
     
-    func sendButtonTapped() {
-        // Send button logic
+    // Логика подписки
+    func subscribe() {
+        if selectedOption == .annual {
+            subscribeSuccessOneYear()
+        } else if selectedOption == .monthly {
+            subscribeSuccessOneMonth()
+        }
     }
     
-    func closePaywall() {
-        // Close paywall logic
+    // Подписка на год
+    func subscribeSuccessOneYear() {
+        guard let yearlyProduct = yearlyProduct else {
+            print("Годовой продукт не найден")
+            return
+        }
+
+        Task {
+            await SubscriptionManager.shared.purchaseProduct(yearlyProduct)
+            if SubscriptionManager.shared.activeSubscription {
+                showServerConnectionView = true
+            } else {
+                print("Подписка не была активирована.")
+            }
+        }
+    }
+
+    // Подписка на месяц
+    func subscribeSuccessOneMonth() {
+        guard let monthlyProduct = monthlyProduct else {
+            print("Месячный продукт не найден")
+            return
+        }
+
+        Task {
+            await SubscriptionManager.shared.purchaseProduct(monthlyProduct)
+            if SubscriptionManager.shared.activeSubscription {
+                showServerConnectionView = true
+            } else {
+                print("Подписка не была активирована.")
+            }
+        }
     }
     
+    // Восстановление покупок
+    func restorePurchases() {
+        Task {
+            await SubscriptionManager.shared.restorePurchases()
+            isSubscribed = SubscriptionManager.shared.activeSubscription
+        }
+    }
+    
+    // Открываем URL
     func openURL(_ urlString: String) {
         if let url = URL(string: urlString) {
             UIApplication.shared.open(url)
@@ -148,35 +216,12 @@ struct PayWallScreenView: View {
     }
 }
 
-// Custom view for the options (Three days / Yearly)
-struct OptionView: View {
-    let title: String
-    let subtitle: String
-    let isSelected: Bool
-    
-    var body: some View {
-        HStack {
-            VStack(alignment: .leading) {
-                Text(title)
-                    .font(.system(size: 16, weight: .bold))
-                    .foregroundColor(Color(hex: "#141316"))
-                Text(subtitle)
-                    .font(.system(size: 13, weight: .medium))
-                    .foregroundColor(Color(hex: "#999999"))
-            }
-            Spacer()
-            Image(systemName: isSelected ? "checkmark.circle.fill" : "circle")
-                .resizable()
-                .frame(width: 19, height: 19)
-        }
-        .padding()
-        .background(Color(hex: "#F5F7FA"))
-        .cornerRadius(25)
-        .shadow(color: Color.gray.opacity(0.5), radius: 2, x: 2, y: 2) // Добавляем тень, но без обводки
+struct PayWallScreenView_Previews: PreviewProvider {
+    static var previews: some View {
+        PayWallScreenView()
     }
 }
 
-// Helper for Color from hex string
 extension Color {
     init(hex: String) {
         let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)

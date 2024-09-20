@@ -76,14 +76,26 @@ struct PayWallOneView: View {
             
             Spacer().frame(height: 20)
             
-            HStack(spacing: 8) {
-                ForEach(0..<pages.count, id: \.self) { index in
-                    Circle()
-                        .fill(index == currentPage ? Color.accent : Color.gray)
-                        .frame(width: 10, height: 10)
-                        .onTapGesture {
-                            currentPage = index
-                        }
+            if currentPage < 4 {
+                // Показать индикаторы, если currentPage < 4
+                HStack(spacing: 8) {
+                    ForEach(0..<pages.count, id: \.self) { index in
+                        Circle()
+                            .fill(index == currentPage ? Color.accent : Color.gray)
+                            .frame(width: 10, height: 10)
+                            .onTapGesture {
+                                currentPage = index
+                            }
+                    }
+                }
+            } else {
+                Button(action: {
+                    // Действие кнопки подписки
+                }) {
+                    Text("Proceed with Ads")
+                        .foregroundColor(Color.accent)
+                        .font(.system(size: 16).weight(.bold))
+                        .frame(maxWidth: .infinity)
                 }
             }
             
@@ -146,11 +158,9 @@ struct PayWallOneView: View {
                         if currentPage < pages.count - 1 {
                             currentPage += 1
                         }
-                    } else if value.translation.width > 50 {
+                    } else if value.translation.width > 50 && currentPage > 0 {
                         // Свайп вправо
-                        if currentPage > 0 {
-                            currentPage -= 1
-                        }
+                        currentPage -= 1
                     }
                 }
         )

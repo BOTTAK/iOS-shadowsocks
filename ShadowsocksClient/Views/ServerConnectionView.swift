@@ -62,9 +62,7 @@ struct ServerConnectionView: View {
             )
         }
         .fullScreenCover(isPresented: $showPayWall) {
-            PayWallScreenWrapper {
-                showPayWall = false
-            }
+            PayWallScreenView()
             .edgesIgnoringSafeArea(.all)
         }
     }
