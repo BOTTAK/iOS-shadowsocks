@@ -1,7 +1,7 @@
 import UIKit
 import AppMetricaCore
 import FirebaseCore
-
+import GoogleMobileAds
 import Combine
 
 class AppDelegate: NSObject, UIApplicationDelegate {
@@ -11,6 +11,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         let configuration = AppMetricaConfiguration(apiKey: "9b4b9cb9-cbfd-4469-a89a-35814af5f906")
         AppMetrica.activate(with: configuration!)
         FirebaseApp.configure()
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
         return true
     }
     
