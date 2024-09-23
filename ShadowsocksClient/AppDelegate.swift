@@ -4,14 +4,22 @@ import FirebaseCore
 import GoogleMobileAds
 import Combine
 
-class AppDelegate: NSObject, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let configuration = AppMetricaConfiguration(apiKey: "9b4b9cb9-cbfd-4469-a89a-35814af5f906")
         AppMetrica.activate(with: configuration!)
         FirebaseApp.configure()
-        GADMobileAds.sharedInstance().start(completionHandler: nil)
+        GADMobileAds.sharedInstance().start { status in
+            let adapterStatuses = status.adapterStatusesByClassName
+            
+            for (className, adapterStatus) in adapterStatuses {
+                print("Adapter: \(className), Status: \(adapterStatus.state.rawValue), Description: \(adapterStatus.description)")
+            }
+            
+            print("Google Mobile Ads SDK initialized successfully.")
+        }
         return true
     }
     

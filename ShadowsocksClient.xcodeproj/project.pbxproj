@@ -11,6 +11,7 @@
 		1120FC9F2CA1A4F7000A112B /* GoogleMobileAds.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1120FC9C2CA1A4F7000A112B /* GoogleMobileAds.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1120FCA02CA1A4F7000A112B /* UserMessagingPlatform.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1120FC9D2CA1A4F7000A112B /* UserMessagingPlatform.xcframework */; };
 		1120FCA12CA1A4F7000A112B /* UserMessagingPlatform.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1120FC9D2CA1A4F7000A112B /* UserMessagingPlatform.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1120FCA82CA1BBE4000A112B /* InterstitialAdsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1120FCA72CA1BBE4000A112B /* InterstitialAdsManager.swift */; };
 		118E8FDC2C9217B200730A50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118E8FDB2C9217B200730A50 /* AppDelegate.swift */; };
 		118E8FDF2C9217F700730A50 /* AppMetricaAdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 118E8FDE2C9217F700730A50 /* AppMetricaAdSupport */; };
 		118E8FE12C9217F700730A50 /* AppMetricaCore in Frameworks */ = {isa = PBXBuildFile; productRef = 118E8FE02C9217F700730A50 /* AppMetricaCore */; };
@@ -189,6 +190,7 @@
 		1120FC972CA1A3DC000A112B /* UserMessagingPlatform.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:EQHXZ8M8AV:Google LLC"; lastKnownFileType = wrapper.xcframework; name = UserMessagingPlatform.xcframework; path = "../../../GoogleMobileAdsSdkiOS-11.10.0/UserMessagingPlatform.xcframework"; sourceTree = "<group>"; };
 		1120FC9C2CA1A4F7000A112B /* GoogleMobileAds.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:EQHXZ8M8AV:Google LLC"; lastKnownFileType = wrapper.xcframework; path = GoogleMobileAds.xcframework; sourceTree = "<group>"; };
 		1120FC9D2CA1A4F7000A112B /* UserMessagingPlatform.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:EQHXZ8M8AV:Google LLC"; lastKnownFileType = wrapper.xcframework; path = UserMessagingPlatform.xcframework; sourceTree = "<group>"; };
+		1120FCA72CA1BBE4000A112B /* InterstitialAdsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterstitialAdsManager.swift; sourceTree = "<group>"; };
 		118E8FDB2C9217B200730A50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		118E8FE62C92BA4D00730A50 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		118E8FE82C92BF7700730A50 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
@@ -723,6 +725,7 @@
 				392E3CD02C26EE6F0060CE18 /* DataManager.swift */,
 				39207EE22C334300000EB919 /* ShadowsocksManager.swift */,
 				11D4F8652C9320D80007A0AC /* FirebaseRemoteConfigManager.swift */,
+				1120FCA72CA1BBE4000A112B /* InterstitialAdsManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -1045,6 +1048,7 @@
 				11B721E02C91C9A100B49754 /* PayWallScreen.swift in Sources */,
 				39207F052C3343BC000EB919 /* MessageKey.swift in Sources */,
 				11B722502C91CA7200B49754 /* String+SizeByFont.swift in Sources */,
+				1120FCA82CA1BBE4000A112B /* InterstitialAdsManager.swift in Sources */,
 				11B7224C2C91CA7200B49754 /* CustomFont.swift in Sources */,
 				11B722472C91CA7200B49754 /* Date+WithoutTimeComponents.swift in Sources */,
 				11B7225A2C91CA7200B49754 /* UICollectionView+RegisterCell.swift in Sources */,

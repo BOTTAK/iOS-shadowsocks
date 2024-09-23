@@ -9,6 +9,7 @@ struct ShadowsocksClientApp: App {
     @State private var showServerConnectionView = false
     @State private var subscriptionChecked = false
     @State private var showActivityIndicator = true
+    @StateObject var interstitialAdsManager = InterstitialAdsManager()
     @AppStorage("hasSeenOnboarding") private var hasSeenOnboarding = false
     @State private var showPayWallOneView = !UserDefaults.standard.bool(forKey: "hasSeenPayWallOneView")
     init() {
@@ -47,6 +48,10 @@ struct ShadowsocksClientApp: App {
                             .edgesIgnoringSafeArea(.all)
                             .environment(dependencyFactory)
                             .environment(connection)
+                            .environmentObject(interstitialAdsManager)
+                            .onAppear {
+                                interstitialAdsManager.loadInterstitialAd()
+                            }
                     }
                 }
             }

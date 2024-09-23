@@ -32,13 +32,13 @@ struct PayWallScreenView: View {
             buttonText: "Try free for 7 days"
         )
     ]
-    
+    @StateObject var interstitialAdsManager = InterstitialAdsManager()
     var body: some View {
         VStack {
             HStack {
                 
                 Button(action: {
-                    showServerConnectionView = true
+                    showIntersistitial()
                 }) {
                     Image("Close_round_fill")
                         .resizable()
@@ -138,6 +138,7 @@ struct PayWallScreenView: View {
         }
         .onAppear {
             loadProducts() // Загружаем продукты при появлении
+
         }
         .fullScreenCover(isPresented: $showServerConnectionView) {
             ServerConnectionView() // Переход в полноэкранном режиме
@@ -213,6 +214,10 @@ struct PayWallScreenView: View {
         if let url = URL(string: urlString) {
             UIApplication.shared.open(url)
         }
+    }
+    
+    func showIntersistitial() {
+        interstitialAdsManager.displayInterstitialAd()
     }
 }
 
