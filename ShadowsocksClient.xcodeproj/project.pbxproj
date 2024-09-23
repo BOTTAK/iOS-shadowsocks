@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1120FC982CA1A3DC000A112B /* GoogleMobileAds.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1120FC962CA1A3DC000A112B /* GoogleMobileAds.xcframework */; };
-		1120FC992CA1A3DC000A112B /* GoogleMobileAds.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1120FC962CA1A3DC000A112B /* GoogleMobileAds.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1120FC9A2CA1A3DC000A112B /* UserMessagingPlatform.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1120FC972CA1A3DC000A112B /* UserMessagingPlatform.xcframework */; };
-		1120FC9B2CA1A3DC000A112B /* UserMessagingPlatform.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1120FC972CA1A3DC000A112B /* UserMessagingPlatform.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1120FC9E2CA1A4F7000A112B /* GoogleMobileAds.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1120FC9C2CA1A4F7000A112B /* GoogleMobileAds.xcframework */; };
+		1120FC9F2CA1A4F7000A112B /* GoogleMobileAds.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1120FC9C2CA1A4F7000A112B /* GoogleMobileAds.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1120FCA02CA1A4F7000A112B /* UserMessagingPlatform.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1120FC9D2CA1A4F7000A112B /* UserMessagingPlatform.xcframework */; };
+		1120FCA12CA1A4F7000A112B /* UserMessagingPlatform.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1120FC9D2CA1A4F7000A112B /* UserMessagingPlatform.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		118E8FDC2C9217B200730A50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118E8FDB2C9217B200730A50 /* AppDelegate.swift */; };
 		118E8FDF2C9217F700730A50 /* AppMetricaAdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 118E8FDE2C9217F700730A50 /* AppMetricaAdSupport */; };
 		118E8FE12C9217F700730A50 /* AppMetricaCore in Frameworks */ = {isa = PBXBuildFile; productRef = 118E8FE02C9217F700730A50 /* AppMetricaCore */; };
@@ -149,14 +149,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		3994DD5C2C303EF700411827 /* Embed Frameworks */ = {
+		1120FCA22CA1A4F7000A112B /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				1120FC9B2CA1A3DC000A112B /* UserMessagingPlatform.xcframework in Embed Frameworks */,
-				1120FC992CA1A3DC000A112B /* GoogleMobileAds.xcframework in Embed Frameworks */,
+				1120FCA12CA1A4F7000A112B /* UserMessagingPlatform.xcframework in Embed Frameworks */,
+				1120FC9F2CA1A4F7000A112B /* GoogleMobileAds.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -187,6 +187,8 @@
 /* Begin PBXFileReference section */
 		1120FC962CA1A3DC000A112B /* GoogleMobileAds.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:EQHXZ8M8AV:Google LLC"; lastKnownFileType = wrapper.xcframework; name = GoogleMobileAds.xcframework; path = "../../../GoogleMobileAdsSdkiOS-11.10.0/GoogleMobileAds.xcframework"; sourceTree = "<group>"; };
 		1120FC972CA1A3DC000A112B /* UserMessagingPlatform.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:EQHXZ8M8AV:Google LLC"; lastKnownFileType = wrapper.xcframework; name = UserMessagingPlatform.xcframework; path = "../../../GoogleMobileAdsSdkiOS-11.10.0/UserMessagingPlatform.xcframework"; sourceTree = "<group>"; };
+		1120FC9C2CA1A4F7000A112B /* GoogleMobileAds.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:EQHXZ8M8AV:Google LLC"; lastKnownFileType = wrapper.xcframework; path = GoogleMobileAds.xcframework; sourceTree = "<group>"; };
+		1120FC9D2CA1A4F7000A112B /* UserMessagingPlatform.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:EQHXZ8M8AV:Google LLC"; lastKnownFileType = wrapper.xcframework; path = UserMessagingPlatform.xcframework; sourceTree = "<group>"; };
 		118E8FDB2C9217B200730A50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		118E8FE62C92BA4D00730A50 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		118E8FE82C92BF7700730A50 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
@@ -326,9 +328,9 @@
 				118E8FE32C9217F700730A50 /* AppMetricaCrashes in Frameworks */,
 				118E8FDF2C9217F700730A50 /* AppMetricaAdSupport in Frameworks */,
 				11D4F86A2C9321C50007A0AC /* FirebaseRemoteConfigSwift in Frameworks */,
-				1120FC9A2CA1A3DC000A112B /* UserMessagingPlatform.xcframework in Frameworks */,
+				1120FCA02CA1A4F7000A112B /* UserMessagingPlatform.xcframework in Frameworks */,
 				118E8FF22C931B8700730A50 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
-				1120FC982CA1A3DC000A112B /* GoogleMobileAds.xcframework in Frameworks */,
+				1120FC9E2CA1A4F7000A112B /* GoogleMobileAds.xcframework in Frameworks */,
 				118E8FEE2C931B8700730A50 /* FirebaseAnalytics in Frameworks */,
 				118E8FE12C9217F700730A50 /* AppMetricaCore in Frameworks */,
 				118E8FF62C931B8700730A50 /* FirebaseAppDistribution-Beta in Frameworks */,
@@ -746,6 +748,8 @@
 			children = (
 				1120FC962CA1A3DC000A112B /* GoogleMobileAds.xcframework */,
 				1120FC972CA1A3DC000A112B /* UserMessagingPlatform.xcframework */,
+				1120FC9C2CA1A4F7000A112B /* GoogleMobileAds.xcframework */,
+				1120FC9D2CA1A4F7000A112B /* UserMessagingPlatform.xcframework */,
 				392E3CAC2C2611E60060CE18 /* NetworkExtension.framework */,
 			);
 			name = Frameworks;
@@ -887,8 +891,8 @@
 				39A91D8D2C1B59E8009B769F /* Sources */,
 				39A91D8E2C1B59E8009B769F /* Frameworks */,
 				39A91D8F2C1B59E8009B769F /* Resources */,
-				3994DD5C2C303EF700411827 /* Embed Frameworks */,
 				39E20DD12C31CB8A00B7882D /* Embed Foundation Extensions */,
+				1120FCA22CA1A4F7000A112B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
